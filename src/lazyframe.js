@@ -165,10 +165,10 @@ const Lazyframe = () => {
     if (params[1]) {
       params = params[1];
       const hasAutoplay = params.indexOf('autoplay') !== -1;
-      return hasAutoplay ? params : params + '&autoplay=1&rel=0';
+      return hasAutoplay ? params : params + '&autoplay=1';
 
     } else {
-      return 'autoplay=1&rel=0';
+      return 'autoplay=1';
     }
 
   }

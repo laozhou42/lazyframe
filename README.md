@@ -2,21 +2,17 @@
 
 [![npm version](https://badge.fury.io/js/lazyframe.svg)](https://badge.fury.io/js/lazyframe)
 
-Dependency-free library for lazyloading iframes. 
+Dependency-free library for lazyloading iframes.
 
 Watch some examples here: [https://vb.github.io/lazyframe/](https://vb.github.io/lazyframe/)
 
 ## Why?
 
-Because the JavaScript loaded from the external providers is big and takes much time to load. This slows down your site, even if your visitors don't want to see your beautiful videos.
+- **YouTube** – 11 requests ≈ 580kb
+- **Google maps** – 52 requests ≈ 580kb
+- **Vimeo** – 8 requests ≈ 145kb
 
-For example here are the number of requests and filesizes of some well-known services.
-
-* **YouTube** – 11 requests ≈ 580kb
-* **Google maps** – 52 requests ≈ 580kb
-* **Vimeo** – 8 requests ≈ 145kb
-
-Lazyframe creates a responsive placeholder for embedded content and requests it when the user interacts with it. This decreases the page load and idle time.
+Lazyframe creates a responsive placeholder for embedded content and requests it when the user interacts with it. This decreases initial page load time.
 
 Lazyframe comes with brand-like themes for YouTube, Vimeo and Vine.
 
@@ -25,7 +21,7 @@ Lazyframe comes with brand-like themes for YouTube, Vimeo and Vine.
 3. [Initialize](#Initialize)
 4. [Options](#options)
 5. [Changelog](#changelog)
-5. [Compile from Source](#compile-from-source)
+6. [Compile from Source](#compile-from-source)
 
 ### Install
 
@@ -46,7 +42,7 @@ $ bower install lazyframe
 JavaScript ES6 imports
 
 ```js
-import lazyframe from 'lazyframe';
+import lazyframe from "lazyframe";
 ```
 
 Include JavaScript in html
@@ -64,21 +60,21 @@ Sass import
 Include css in html
 
 ```html
-<link rel="stylesheet" href="dist/lazyframe.css">
+<link rel="stylesheet" href="dist/lazyframe.css" />
 ```
 
 ### Initialize
 
 ```js
 // Passing a selector
-lazyframe('.lazyframe');
+lazyframe(".lazyframe");
 
 // Passing a nodelist
-let elements = document.querySelectorAll('.lazyframe');
+let elements = document.querySelectorAll(".lazyframe");
 lazyframe(elements);
 
 // Passing a jQuery object
-let elements = $('.lazyframe');
+let elements = $(".lazyframe");
 lazyframe(elements);
 ```
 
@@ -90,15 +86,15 @@ General options and corresponding defaults
 
 ```js
 lazyframe(elements, {
-   apikey: undefined,
-   debounce: 250,
-   lazyload: true,
+  apikey: undefined,
+  debounce: 250,
+  lazyload: true,
 
-   // Callbacks
-   onLoad: (lazyframe) => console.log(lazyframe),
-   onAppend: (iframe) => console.log(iframe),
-   onThumbnailLoad: (img) => console.log(img)
-})
+  // Callbacks
+  onLoad: lazyframe => console.log(lazyframe),
+  onAppend: iframe => console.log(iframe),
+  onThumbnailLoad: img => console.log(img)
+});
 ```
 
 ### `apikey`
@@ -131,14 +127,14 @@ Callback function with the thumbnail URL
 
 ```html
 <div
-    class="lazyframe"
-    data-vendor=""
-    data-title=""
-    data-thumbnail=""
-    data-src=""
-    data-ratio="1:1"
-    data-initinview="false">
-</div>
+  class="lazyframe"
+  data-vendor=""
+  data-title=""
+  data-thumbnail=""
+  data-src=""
+  data-ratio="1:1"
+  data-initinview="false"
+></div>
 ```
 
 ### `data-vendor`
@@ -166,19 +162,20 @@ The ratio of the lazyframe. Possible values: 16:9, 4:3, 1:1
 Set this to true if you want the resource to execute (for example video to play) when the element is in view.
 
 ## Changelog
-* v1.1.901 betterify example page
-* v1.1.9 remove gulp and rollup and use webpack instead
-    * use Babel 7
-    * add changelog to README
-    * add Compile from source instructions
-* v1.1.8 add rel=0 parameter to YouTube videos
+
+- v1.1.901 betterify example page
+- v1.1.9 remove gulp and rollup and use webpack instead
+  - use Babel 7
+  - add changelog to README
+  - add Compile from source instructions
 
 ## Compile from source
-* clone the github repo
-* cd into the cloned directory
-* make your changes in the script or the scss file
-* run `npx webpack`
-* copy scripts from dist folder
+
+- clone the github repo
+- cd into the cloned directory
+- make your changes in the script or the scss file
+- run `npx webpack`
+- copy scripts from dist folder
 
 ## License
 
